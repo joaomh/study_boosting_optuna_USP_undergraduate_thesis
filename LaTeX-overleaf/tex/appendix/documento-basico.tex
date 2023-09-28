@@ -1,0 +1,166 @@
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{maroon}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+
+
+\lstdefinelanguage{myLatex}
+{
+    keywords={\titulo},
+    alsoletter={-},
+    sensitive=false,
+    morecomment=[l]{\%},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]",
+    morestring=[b]',
+    keywordstyle=\bfseries\color{blue},
+    commentstyle=\itshape\color{darkgreen},
+    morekeywords={documentclass, titulo, autor, data, orientador, coorientador, curso, textoresumo, incluifichacatalografica, textodedicatoria*, textoagradecimentos*, textoepigrafe*, incluilistadefiguras, incluilistadetabelas, incluilistadequadros, incluilistadealgoritmos, incluilistadecodigos, incluilistadesiglas, incluilistadesimbolos, textual, chapter, postextual, begin, bibliography, end}, 
+alsoletter={*, \{, \}, \[, \]},
+ morekeywords=[2]{\{, \}, \[, \]},
+ keywordstyle=[2]\bfseries\color{blue},
+ moredelim=[s][\color{maroon}]{\{}{\}},
+    moredelim=[s][\itshape\color{maroon}]{\[}{\]},
+}
+
+%\lstdefinelanguage{TeX}
+%{
+%moredelim=*[s][\color{maroon}]{\{}{\}}
+%otherkeywords={\{, \}, \[, \], \\}
+%  morestring=[b]",
+%  moredelim=[s][\bfseries\color{maroon}]{<}{\ },
+%  moredelim=[s][\bfseries\color{maroon}]{</}{>},
+%  moredelim=[l][\bfseries\color{maroon}]{/>},
+%  moredelim=[l][\bfseries\color{maroon}]{>},
+%  commentstyle=\color{darkgreen},
+%  stringstyle=\color{blue},
+%  identifierstyle=\color{red},
+%  keywordstyle=\bfseries\color{maroon}
+%moredelim=[l][\bfseries\color{maroon}]{>},
+%commentstyle=\color{darkgreen},
+%  stringstyle=\color{blue},
+%  identifierstyle=\color{red}, moredelim=[l][\bfseries\color{maroon}]{\{},
+%  keywordstyle=\bfseries\color{maroon}
+%}
+
+%\lstset{language={[LaTeX]TeX},
+%texcsstyle=*\bfseries\color{blue},
+%keywordstyle=\bfseries\color{blue},
+%commentstyle=\color{darkgreen},
+%morecomment=[s][\color{red}]{\{}{\}},
+%otherkeywords={$, \{, \}, \[, \]}
+%}
+
+%\begin{codigo}[caption={Exemplo de um documento básico}, label={codigo:documento-basico}, language={[LaTeX]TeX},  breaklines=true,morekeywords={titulo, autor, data, orientador, coorientador, curso, textoresumo, incluifichacatalografica, textodedicatoria*, textoagradecimentos*, textoepigrafe*, incluilistadefiguras, incluilistadetabelas, incluilistadequadros, incluilistadealgoritmos, incluilistadecodigos, incluilistadesiglas, incluilistadesimbolos, {\backslash}textual, chapter, postextual}, alsoletter={{\backslash},*},morecomment=[s][\color{red}]{\{}{\}}]
+\begin{codigo}[caption={Exemplo de um documento básico}, label={codigo:documento-basico}, language={myLatex},  breaklines=true]
+% Documento utilizando a classe icmc
+% Opções: 
+%   Qualificação          = qualificacao 
+%   Curso                 = doutorado/mestrado
+%   Situação do trabalho  = pre-defesa/pos-defesa (exceto para qualificação)
+%   Versão para impressão = impressao
+\ documentclass[doutorado, pos-defesa]{packages/icmc}
+
+% Título do trabalho em Português
+\tituloPT{Título da Monografia}
+
+% Título do trabalho em Inglês
+\tituloEN{Título da Monografia}
+
+% Nome do autor
+\autor[Abreviação]{Nome completo do autor}
+
+% Gênero do autor (M ou F)
+\genero{M}
+
+% Data do depósito
+\data{18}{12}{2012}
+
+% Nome do Orientador
+\orientador[Orientador]{Titulação do orientador}{Nome completo do Orientador}
+
+% Nome do Coorientador (caso não exista basta remover)
+\coorientador[Coorientador]{Titulação do coorientador}{Nome completo do Coorientador}
+% Se coorientadora troque Coorientador: por Coorientadora dentro do colchetes
+
+% Sigla do programa de Pós-graduação (CCMC, MAT, PIPGES, PROFMAT, MECAI)
+\curso{CCMC}
+% O valor entre colchetes é opcional para este programa
+
+% Idioma principal do texto (EN ou PT)
+\idioma{PT}
+
+% Resumo
+\textoresumo[Idioma]{
+Texto do resumo do trabalho.
+}{Lista de palavras-chave separada por virgulas}
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+
+% Inserir a ficha catalográfica
+\incluifichacatalografica{tex/ficha-catalografica.pdf}
+
+% Incluí o texto da Dedicatória
+\textodedicatoria*{tex/pre-textual/dedicatoria}
+
+% Incluí o texto dos Agradecimentos
+\textoagradecimentos*{tex/pre-textual/agradecimentos}
+
+% Incluí o texto da Epígrafe
+\textoepigrafe*{tex/pre-textual/epigrafe}
+
+% Inclui a lista de figuras
+\incluilistadefiguras
+
+% Inclui a lista de tabelas
+\incluilistadetabelas
+
+% Inclui a lista de quadros
+\incluilistadequadros
+
+% Inclui a lista de algoritmos
+\incluilistadealgoritmos
+
+% Inclui a lista de códigos
+\incluilistadecodigos
+
+% Inclui a lista de siglas e abreviaturas
+\incluilistadesiglas
+
+% Inclui a lista de símbolos
+\incluilistadesimbolos
+
+% Início do documento
+\begin{document}
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+\chapter{Introdução}
+
+Capítulo de Introdução
+
+\chapter{Desenvolvimento}
+
+Capítulo de Desenvolvimento
+
+\chapter{Conclusão}
+
+Capítulo de conclusão
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+% Nome do arquivo com as referências bibliográficas
+\bibliography{referencias}
+
+\end{document}
+
+\end{codigo}

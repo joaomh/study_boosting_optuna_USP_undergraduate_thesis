@@ -1,0 +1,133 @@
+Em documentos acadêmicos podem existir as citações podem ser: \textbf{implícitas} quando as referências não fazem parte do texto ou \textbf{explícitas} quando o autor referente a citação é mencionado explicitamente na sentença. Nesse sentido, deve-se utilizar os comandos específicos para cada tipo de citação, ou seja, em citações explicitas deve-se usar o comando \comando{citeonline\{\}} e nas demais situações é usado o comando \comando{cite\{\}}. Alguns exemplos são apresentados no \autoref{qua:exemplo-citacao}.
+
+\begin{quadro}[htb]
+\caption{Exemplos de citações no documento}
+\label{qua:exemplo-citacao}
+\centering\small 
+\begin{tabular}{|c|c|}        \hline
+\textbf{Código em \LaTeX} & \textbf{Código Compilado}\\ \hline\hline
+\begin{minipage}[t]{\VerbL}
+\vspace{5pt}
+\begin{verbatim}
+A ironia será assim uma ... proposta
+por \citeonline{10520:2000:4.1-1}.
+\end{verbatim}
+\vspace{5pt}
+\end{minipage}
+&
+\begin{minipage}[t]{\LatL}
+\vspace{5pt}
+A ironia será assim uma ... proposta 
+por \citeonline{10520:2000:4.1-1}.
+\vspace{5pt}
+\end{minipage}\\\hline
+
+\begin{minipage}[t]{\VerbL}
+\vspace{5pt}
+\begin{verbatim}
+\citeonline[p.~146]{10520:2000:4.2-2}
+dizem que ... 
+\end{verbatim}
+\vspace{5pt}
+\end{minipage}
+&
+\begin{minipage}[t]{\LatL}
+\vspace{5pt}
+\citeonline[p.~146]{10520:2000:4.2-2} dizem que {...}
+\vspace{5pt}
+\end{minipage}\\ \hline
+
+\begin{minipage}[t]{\VerbL}
+\vspace{5pt}
+\begin{verbatim}
+``Apesar das ... da filosofia''
+\cite[p.~293]{10520:2000:4.1-2}.
+\end{verbatim}
+\vspace{5pt}
+\end{minipage}
+&
+\begin{minipage}[t]{\LatL}
+\vspace{5pt}
+``Apesar das {...} da filosofia'' \cite[p.~293]{10520:2000:4.1-2}.
+\vspace{5pt}
+\end{minipage} \\ \hline
+
+\begin{minipage}[t]{\VerbL}
+\vspace{5pt}
+\begin{verbatim}
+Depois, ...  que prefiro
+\cite{10520:2000:4.1-3}.
+\end{verbatim}
+\vspace{5pt}
+\end{minipage}
+&
+\begin{minipage}[t]{\LatL}
+\vspace{5pt}
+Depois, {...} que prefiro \cite{10520:2000:4.1-3}.
+\vspace{5pt}
+\end{minipage}\\ \hline
+
+\end{tabular}
+\end{quadro}
+
+
+Para especificar a página, seção ou capítulo consultado na referência é preciso acrescentá-lo entre colchetes com os comandos \comando{cite[página]\{\}} ou \comando{citeonline[página]\{\}}. O texto colocado entre colchetes aparecerá logo após o ano. Maiores informações sobre os comandos utilizados para citação posem ser consultados no manual de referência da abnTeX2, incluindo o uso de \textbf{apud} \cite{abntex2cite-alf}.
+
+
+\section{Citações Indiretas}
+
+As citações indiretas são caracterizadas como uma espécie de paráfrase das ideias de um determinado autor, ou seja, o pesquisador, por meio de suas próprias palavras, interpreta o discurso de outrem, contudo, mantendo o mesmo sentido. Outro aspecto que deve ser considerado é a necessidade de o autor (ou os autores) e o ano em que a obra foi publicada serem mencionados. 
+
+Nas citações indiretas há duas formatações possíveis dependendo de como ocorre a citação no texto. Quando o autor é mencionado explicitamente utiliza-se o comando \comando{citeonline\{\}}, caso contrário, deve utilizar o comando \comando{cite\{\}}. 
+
+
+
+\section{Citações diretas}
+\label{sec-citacao}
+
+
+As citações diretas ocorrem quando o texto de uma referência é transcrito literalmente. As citações diretas curtas (até três linhas) são inseridas no texto entre aspas duplas. As aspas simples são utilizadas para indicar citação no interior da citação: \aspas{Nas citações, as chamadas pelo sobrenome do autor [...] incluído na sentença devem ser em letras maiúsculas e minúsculas e, quando estiverem entre parênteses, devem ser em letras maiúsculas} \cite[sec.~5]{NBR10520:2002}.
+
+\begin{verbatim}
+``Nas citações, as chamadas pelo sobrenome do autor [...] incluído na 
+sentença devem ser em letras maiúsculas e minúsculas e, quando 
+estiverem entre parênteses, devem ser em letras maiúsculas''
+\cite[5]{NBR10520:2002}.
+\end{verbatim}
+
+Cabe ressaltar que em \LaTeX as aspas iniciais são diferentes das finais. Para tanto, pode-se utilizar o comando \comando{aspas\{CONTEUDO\}} para inserir um determinado conteúdo entre aspas.
+
+As citações diretas longas (com mais de 3 linhas) podem ser inseridas por meio do ambiente \texttt{citacao}:
+
+\begin{citacao}
+As citações diretas, no texto, com mais de três linhas, devem ser
+destacadas com recuo de 4 cm da margem esquerda, com letra menor que a do texto
+utilizado e sem as aspas. No caso de documentos datilografados, deve-se
+observar apenas o recuo \cite[5.3]{NBR10520:2002}.
+\end{citacao}
+
+Use o ambiente assim:
+
+\begin{verbatim}
+\begin{citacao}
+As citações diretas, no texto, com mais de três linhas [...] deve-se 
+observar apenas o recuo \cite[5.3]{NBR10520:2002}.
+\end{citacao}
+\end{verbatim}
+
+O ambiente \texttt{citacao} pode receber como parâmetro opcional um nome de
+idioma previamente carregado nas opções da classe (\autoref{sec-hifenizacao}). Nesse
+caso, o texto da citação é automaticamente escrito em itálico e a hifenização é
+ajustada para o idioma selecionado na opção do ambiente. Por exemplo:
+
+\begin{verbatim}
+\begin{citacao}[english]
+Text in English language in italic with correct hyphenation.
+\end{citacao}
+\end{verbatim}
+
+Tem como resultado:
+
+\begin{citacao}[english]
+Text in English language in italic with correct hyphenation.
+\end{citacao}

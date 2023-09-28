@@ -1,0 +1,260 @@
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% ICMC: Modelo de Trabalho Acadêmico (tese de doutorado, dissertação de
+% mestrado e trabalhos monográficos em geral) em conformidade com 
+% ABNT NBR 14724:2011: Informação e documentação - Trabalhos acadêmicos -
+% Apresentação
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% Opções: 
+%   Qualificação          = qualificacao 
+%   Curso                 = doutorado/mestrado
+%   Situação do trabalho  = pre-defesa/pos-defesa (exceto para qualificação)
+%   Versão para impressão = impressao
+\documentclass[doutorado, pos-defesa]{packages/icmc}
+
+% ---------------------------------------------------------------------------
+% Pacotes Opcionais
+% ---------------------------------------------------------------------------
+\usepackage{rotating}           % Usado para rotacionar o texto
+\usepackage[all,knot,arc,import,poly]{xy}   % Pacote para desenhos gráficos
+% Este pacote pode conflitar com outros pacotes gráficos como o ``pictex''
+% Então é necessário usar apenas um dos pacotes conflitantes
+\newcommand{\VerbL}{0.52\textwidth}
+\newcommand{\LatL}{0.42\textwidth}
+\let\mathcal\undefined
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+% ---------------------------------------------------------------------------
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+
+% \doublespacing
+
+% \begin{titlepage}
+%     \begin{center}
+%         {\large \sc UNIVERSIDADE DE SÃO PAULO} \\
+%         {\large \sc ESCOLA DE ENGENHARIA DE SÃO CARLOS}\\[0.0cm]
+%         {\large \sc DEPARTAMENTO DE ENGENHARIA MECÂNICA}\\[2.0cm]
+
+%         % Título.
+%         {
+%     \rule{0.9\linewidth}{0.5mm} \\[0.4cm]
+%         {\large \bfseries Um estudo sobre Algoritmos de Boosting e a otimização de hiperparametros utilizando Optuna}\\
+%         \rule{0.9\linewidth}{0.5mm} \\[7.4cm]
+%         {\small \sc  \bfseries{Palavras-chave:}} Gradient Boosting. Aprendizado de
+% Máquina Supervisionado. Análise Experimental. Classificação. Otimização. \\[2.0cm]
+%         {\small \sc  \emph{Orientador:} Prof.Dr. Marcelo Becker }\\[0.0cm]
+%         {\small \sc  \emph{Aluno:} João Manoel Herrera Pinheiro }\\[0.0cm]
+%     \end{center}
+%     \vfill
+
+%     % Data
+%     \begin{center}
+%         \makeatletter
+%         \@date
+%         \makeatother
+%     \end{center}
+% \end{titlepage}
+
+% \noindent{}
+% \newpage
+% \setcounter{page}{1}
+% \pagestyle{plain}
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+% Tanto na capa quanto nas folhas de rosto apenas a primeira letra da primeira palavra (ou nomes próprios) devem estar em letra maiúscula, todas as demais devem ser em letra minúscula.
+\tituloPT{Um estudo sobre Algoritmos de Boosting e a Otimização de Hiperparâmetros Utilizando Optuna}
+\tituloEN{A Study on Gradient Boosting Algorithms and  Hyperparameter Optimization using Optuna}
+\autor[Pinheiro, J. M. H.]{João Manoel Herrera Pinheiro}
+\genero{M} % Gênero do autor (M = Masculino / F = Feminino)
+\orientador[Orientador]{Prof. Dr.}{Dr. Marcelo Becker}
+%\coorientador{Prof. Dr.}{Fulano de Tal}
+
+% \data{07}{02}{2023} % Data do depósito
+\idioma{PT} % Idioma principal do documento (PT = português / EN = inglês)
+% ---
+
+
+% ---
+% RESUMOS
+% ---
+
+% Resumo em PORTUGUÊS
+% conter no máximo 500 palavras
+% conter no mínimo 1 e no máximo 5 palavras-chave
+\textoresumo[brazil]{
+    Este trabalho é um estudo sobre os algoritmos de \textit{Gradient Boosting Machines} (GBMs), os quais são  algoritmos de aprendizado de máquina supervisionado que vem obtendo excelente resultados em uma ampla gama de problemas e vencendo diversas competições de aprendizado de máquina. Neste trabalho vamos abordar três bibliotecas que implementam os GBMs, essas bibliotecas são: o XGBoost, CatBoost e LightGBM. Foi realizado um comparativo entre as técnicas e os resultados obtidos, e então partimos para a otimização dos hiperparâmetros utilizando o Optuna. Ao construir um modelo de aprendizado de máquina, a otimização de hiperparâmetros pode se tornar uma tarefa desafiadora e demorada, dependendo do número e do espaço de busca do procedimento de otimização. Definir os hiperparâmetros é uma tarefa fundamental. É necessário entender como eles afetam o resultado do modelo e a partir disso, implementamos o Optuna para os três algoritmos, um framework de otimização de hiperparâmetros. Os conjuntos de dados deste experimento são consumidos da plataforma Kaggle e OpenML. 
+    O primeiro experimento realizado foi um comparativo entre os algoritmos pelas métricas de validação e em seguida tentou-se alterar os hiperparâmetros para identificar a influência deles no modelo. Inicialmente, não foi possível obter uma conclusão. Na sequência, foi feita uma análise mais complexa pelo estudo do Optuna. Nesses resultados conseguimos identificar quais hiperparâmetros tiveram seu maior impacto na importância do estudo e se houve alterações desses hiperparâmetros em cada conjunto de dados. 
+    Além disso, foi possível melhorar todos os modelos preditivos com apenas a utilização do Optuna. E, ainda, para o modelo com a maior complexidade de previsão, o Optuna demonstrou ser eficaz e resultou em aumento de performance. Com a utilização dos \textit{Shapley Additive exPlanations (SHAP Values)}, conseguimos interpretar os modelos e como cada variável impactou no conjunto de treino.}{Gradient Boosting, Aprendizado de Máquina Supervisionado, Otimização dos Hiperparâmetros, Classificação, Seleção de Modelos, Estudo Empírico, Shapley Values}
+
+% Gradient Boosting. Aprendizado de
+% Máquina Supervisionado, Importância de Hiperparâmetros, Otimização dos Hiperparâmetros, Optuna, Análise Experimental, Classificação, Seleção de Modelos, Estudo Empírico
+
+% resumo em INGLÊS
+% conter no máximo 500 palavras
+% conter no mínimo 1 e no máximo 5 palavras-chave
+\textoresumo[english]{
+    This thesis is a study about Gradient Boosting Machines (GBMs) algorithms, which are supervised machine learning algorithms that have been getting excellent results on a wide range of problems and winning numerous machine learning competitions. In this work we will approach three libraries that implement the GBMs, these libraries are: XGBoost, CatBoost and LightGBM. A comparison was made between the techniques and the results from each algorithm, and then we started to optimize the hyperparameters using Optuna. When building a machine learning model, hyperparameter optimization can become a challenging and time-consuming task, depending on the number of hyperparameters and the space of the optimization. Defining the hyperparameters is a fundamental task. It is required understand how they affect the result of the model and from that, we implement Optuna, a hyperparameter optimization framework, to the three algorithms. The data sets from this experiment are obtained from the Kaggle and OpenML platform.
+    The first experiment was a comparison between the algorithms using validation metrics. Then we attempt to identify the hyperparameters influence on the model by changing their values. Initially, it was not possible to reach a conclusion. Subsequently, a more complex analysis was carried out using Optuna. In these results we were able to identify which hyperparameters had bigger impact on the importance of the study and whether there were changes in these hyperparameters in each data set. Furthermore, it was possible to improve all predictive models with only the use of Optuna. And yet, for the model with the greatest complexity, Optuna proved to be effective and resulted in increased performance. With the use of Shapley Additive exPlanations (SHAP Values), we were able to interpret the models and how each variable impacted on the training set.}{Gradient Boosting, Supervised Machine Learning, Hyperparameter Optimization, Classification, Model Selection, Empirical Study, Shapley Values.}
+    
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+
+% Inserir a ficha catalográfica
+
+
+% DEDICATÓRIA / AGRADECIMENTO / EPÍGRAFE
+\textodedicatoria*{tex/pre-textual/dedicatoria}
+\textoagradecimentos*{tex/pre-textual/agradecimentos}
+\textoepigrafe*{tex/pre-textual/epigrafe}
+
+% Inclui a lista de figuras
+\incluilistadefiguras
+
+% Inclui a lista de tabelas
+\incluilistadetabelas
+
+% % Inclui a lista de quadros
+% \incluilistadequadros
+
+% Inclui a lista de algoritmos
+\incluilistadealgoritmos
+
+% Inclui a lista de códigos
+\incluilistadecodigos
+
+% Inclui a lista de siglas e abreviaturas
+\incluilistadesiglas
+
+% Inclui a lista de símbolos
+\incluilistadesimbolos
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\chapter{Introdução}
+\label{chapter:introducao}
+\input{tex/introducao}
+
+\chapter{Fundamentos de Aprendizado Supervisionado}
+\label{chapter:fundamentos-aprendizado}
+\input{tex/fundamentos.tex}
+
+\chapter{Algoritmos de Gradient Boosting}
+\label{chapter:algoritmos-boosting}
+\input{tex/boosting.tex}
+
+\chapter{Desenvolvimento}
+\label{chapter:desenvolvimento}
+\input{tex/desenvolvimento.tex}
+
+\chapter{Análise Experimental}
+\label{chapter:experimental}
+\input{tex/experimental.tex}
+
+\chapter{Resultados e Discussões}
+\label{chapter:resultados}
+\input{tex/resultados.tex}
+
+\chapter{Conclusão}
+\label{chapter:conclusao}
+\input{tex/conclusao.tex}
+
+% \chapter{Listas}
+% \label{chapter:listas}
+% \input{tex/listas}
+
+% \chapter{Ferramentas úteis}
+% \label{chapter:ferramentas-uteis}
+% \input{tex/ferramentas-uteis}
+
+% \chapter{Citações e referências}
+% \label{chapter:citacoes}
+% \input{tex/citacoes}
+
+
+% ---
+% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+% ---
+\bookmarksetup{startatroot}% 
+% ---
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{references}
+
+% ---------------------------------------------------------------------
+% GLOSSÁRIO
+% ---------------------------------------------------------------------
+
+% Arquivo que contém as definições que vão aparecer no glossário
+% \input{tex/glossario}
+% Comando para incluir todas as definições do arquivo glossario.tex
+% \glsaddall
+% % Impressão do glossário
+% \printglossaries
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+\begin{apendicesenv}
+    \chapter{Códigos Implementados}
+    O código final se encontra no repositório no \href{https://github.com/joaomh/study_boosting_optuna_USP_undergraduate_thesis}{GitHub}.
+%     \label{cod:final:notebook}
+%     % \input{tex/appendix/documento-basico}
+%     \begin{codigo}[caption={Código final no Jupyter-Notebook}, language=Python, breaklines=true]
+% import optuna
+
+% def objective(trial):
+%     x = trial.suggest_float('x', -10, 10)
+%     return (x - 2) ** 2
+
+% study = optuna.create_study()
+% study.optimize(objective, n_trials=100)
+% \end{codigo}
+    
+    % \chapter{Configuração do programa JabRef}
+    % \label{chapter:configuracao-jabref}
+    % \input{tex/appendix/configuracao-jabref}
+
+\end{apendicesenv}
+% ---
+
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+
+% ---
+% Inicia os anexos
+% ---
+\begin{anexosenv}
+
+    \chapter{Páginas de Documentação} 
+    \label{chapter:paginas-interessantes}
+    \input{tex/annex/paginas-interessantes}
+
+\end{anexosenv}
+% ---
+
+\end{document}
