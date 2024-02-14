@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Herrera Pinheiro"
+  given-names: "João Manoel"
+  orcid: "https://orcid.org/0009-0001-6192-7374"
+- family-names: "Becker"
+  given-names: "Marcelo"
+  orcid: "https://orcid.org/0000-0002-7508-5817"
+title: "Um estudo sobre algoritmos de boosting e a Otimização de Hiperparâmetros utilizando optuna"
+date-released: 2023-14-02
+url: "https://github.com/joaomh/study_boosting_optuna_USP_undergraduate_thesis"
